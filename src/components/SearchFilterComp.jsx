@@ -1,5 +1,5 @@
-import SearchComp from "./SearchComp";
-import SelectComp from "./SelectComp";
+import SearchComp from "./SearchComp.jsx";
+import SelectComp from "./SelectComp.jsx";
 
 const SearchFilterComp = ({setUserInput}) => {
   return (

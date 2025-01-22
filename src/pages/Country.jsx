@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CountryDetails from "../components/CountryDetails";
+import CountryDetails from "../components/CountryDetails.jsx";
 import {Context} from "../context/Context.js";
 
 const Country = () => {

@@ -2,7 +2,7 @@ import { useEffect, useId, useState } from "react";
 import useFetchData from "./useFetchData";
 import { Link, useParams } from "react-router-dom";
 import NotFound from "../pages/NotFound";
-import CountryShimmer from "./countryShimmer";
+import CountryShimmer from "./countryShimmer.jsx";
 
 const CountryDetails = () => {
   const params = useParams();

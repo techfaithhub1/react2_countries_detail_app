@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-
 const useFetchData = (endPoint) => {
      const [cData, setCdata] = useState([]);
      const [err, setErr] = useState(false);

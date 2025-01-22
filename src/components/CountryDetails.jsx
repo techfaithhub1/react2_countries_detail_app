@@ -10,7 +10,8 @@ const CountryDetails = () => {
   // const {state} = useLocation(); take from other page 
   const [countryData, setCountryData] = useState(null);
   const id = useId();
-  let  [cData, err] =  useFetchData(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`);
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  let  [cData, err] =  useFetchData(`name/${countryName}?fullText=true`);
   // cData = cData==[]?cData:[state];
 
   useEffect(() => {
@@ -33,22 +34,12 @@ const CountryDetails = () => {
         cData[0].borders = [];
       }
       Promise.all(cData[0]?.borders?.map((border) => {
-        return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+        return fetch(`${BASE_URL}/alpha/${border}`)
           .then((res) => res.json())
           .then((data) => data[0].name.common);
       })).then((allBorders)=>{
         setCountryData((preState)=> ({...preState, borders: allBorders}));
       });
-      // cData[0]?.borders?.map((border) => {
-      //   fetch(`https://restcountries.com/v3.1/alpha/${border}`)
-      //     .then((res) => res.json())
-      //     .then((data) => {
-      //       setCountryData((preState) => ({
-      //         ...preState,
-      //         borders: [...preState.borders, data[0].name.common],
-      //       }));
-      //     });
-      // });
     }
   }, [cData, countryName]);
 

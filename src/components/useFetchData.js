@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useFetchData = (url) => {
+
+const useFetchData = (endPoint) => {
      const [cData, setCdata] = useState([]);
      const [err, setErr] = useState(false);
+     const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
      useEffect(()=>{
           const getData = async ()=>{
                try {
-                    let response = await axios.get(url); 
+                    let response = await axios.get(`${BASE_URL}/${endPoint}`); 
                     setCdata(response.data);
                } catch (error) {
                     console.log("error..", error);
@@ -16,9 +18,9 @@ const useFetchData = (url) => {
                }
           };
 
-          url && getData();
+          endPoint && getData();
 
-     }, [url]);
+     }, [endPoint]);
 
      return [cData, err];
 }

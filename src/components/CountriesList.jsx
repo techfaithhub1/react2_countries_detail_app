@@ -4,7 +4,7 @@ import useFetchData from "./useFetchData.js";
 // import countriesData from "./countriesData";
 
 const CountriesList = ({ userInput }) => {
-  const [cData] = useFetchData(`https://restcountries.com/v3.1/all`);
+  const [cData] = useFetchData(`all`);
 
   if (cData.length == 0) {
     return <CountriesListShimmer />;
